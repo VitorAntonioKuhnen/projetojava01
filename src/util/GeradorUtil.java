@@ -26,9 +26,9 @@ public class GeradorUtil {
         
     }
     
-    public String gerarMascaraCpf(int gerarCpf){
+    public String gerarMascaraCpf(){
         
-        return gerarCpf(3) + "." + gerarCpf(3) + "." + gerarCpf(3) + "-" + gerarCpf(2);
+        return gerarNumero(3) + "." + gerarNumero(3) + "." + gerarNumero(3) + "-" + gerarNumero(2);
     }
     
     
@@ -42,5 +42,5 @@ public class GeradorUtil {
 //        System.out.println("Salário: " + util.gerarSalario());
         System.out.println("CPF: " + cpf);
     }
-
+    
 }
