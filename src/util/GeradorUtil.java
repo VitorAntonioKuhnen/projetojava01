@@ -36,11 +36,29 @@ public class GeradorUtil {
         int numero = (int) (Math.random() * 100000);
         return numero;
     }
+    
+    
+    public String gerarNome(){
+        String[] nomes  = {"Vítor", "Dougras", "João", "Beatriz", "Thiago", "Tiago", 
+            "Ramon", "Max", "Alisson", "Willian", "Mariele", "Jeferson", "Matheus", 
+            "Elaine", "Belmir", "Silvio", "Guilherme", "Lucas", "Marcos", "Arnaldo", "Octavia", "Ellen"};
+        int indice = (int)(Math.random() * nomes.length);
+        String nome = nomes[indice];
+        return nome;
+    }
+    private String gerarSobrenome(){
+        String[] sobrenomes = {"Kuhnen", "Antônio", "Gaspar", "Vilas", "Boas", "Henrique", "Kuhn", "Silva", "Warmling"};
+        int indice = (int)(Math.random() * sobrenomes.length);
+        String sobrenome = sobrenomes[indice];
+        return sobrenome;
+    }
+    
     public static void main(String[] args) {
         GeradorUtil util = new GeradorUtil();
-        String cpf = util.gerarMascaraCpf();
+        String nomes = util.gerarNome();
+        String sobrenome = util.gerarSobrenome();
 //        System.out.println("Salário: " + util.gerarSalario());
-        System.out.println("CPF: " + cpf);
+        System.out.println("NomeS: " + nomes + " " + sobrenome);
     }
     
 }
