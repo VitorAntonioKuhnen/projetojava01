@@ -3,9 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package teste;
+package tela;
 
-import aula_01.Aluno;
+import entidade.Aluno;
 import javax.swing.JOptionPane;
 
 /**
@@ -18,10 +18,8 @@ public class TestaAluno {
         Aluno aluno = new Aluno();
         String nome = JOptionPane.showInputDialog("Informe o seu nome");
         aluno.setNome(nome);
-        String sobrenome = JOptionPane.showInputDialog("Informe o seu sobrenome:");
-        aluno.setSobrenome(sobrenome);
         
-        System.out.println("Nome: " + aluno.getNome() + " " + aluno.getSobrenome());
+        System.out.println("Nome: " + aluno.getNome());
         
 //        aluno.sobrenome = JOptionPane.showInputDialog("Informe o seu sobrenome");
 //        aluno.idade = JOptionPane.showInputDialog("Informe o sua idade");
