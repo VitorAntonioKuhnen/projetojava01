@@ -5,18 +5,16 @@
  */
 package painel;
 
-import javax.swing.JOptionPane;
-
 /**
  *
  * @author vitor.kuhnen
  */
-public class TelaCadastro extends javax.swing.JFrame {
+public class Template extends javax.swing.JFrame {
 
     /**
      * Creates new form TelaCadastro
      */
-    public TelaCadastro() {
+    public Template() {
         initComponents();
     }
 
@@ -33,44 +31,37 @@ public class TelaCadastro extends javax.swing.JFrame {
         titulo = new javax.swing.JLabel();
         nome = new javax.swing.JLabel();
         varNome = new javax.swing.JTextField();
-        btSalvar = new javax.swing.JButton();
+        jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Cadastro");
 
-        principal.setBackground(new java.awt.Color(102, 102, 102));
-
         titulo.setFont(new java.awt.Font("Showcard Gothic", 0, 18)); // NOI18N
-        titulo.setForeground(new java.awt.Color(204, 204, 204));
         titulo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         titulo.setText("Cadastre-se");
 
         nome.setFont(new java.awt.Font("Segoe UI Black", 1, 14)); // NOI18N
-        nome.setForeground(new java.awt.Color(204, 204, 204));
         nome.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         nome.setText("Nome:");
 
-        varNome.setBackground(new java.awt.Color(255, 255, 255));
-        varNome.setForeground(new java.awt.Color(0, 0, 0));
+        varNome.setBackground(new java.awt.Color(102, 102, 102));
+        varNome.setForeground(new java.awt.Color(255, 255, 255));
         varNome.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 varNomeActionPerformed(evt);
             }
         });
 
-        btSalvar.setBackground(new java.awt.Color(0, 51, 51));
-        btSalvar.setFont(new java.awt.Font("Century", 1, 12)); // NOI18N
-        btSalvar.setText("Salvar");
-        btSalvar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btSalvarActionPerformed(evt);
-            }
-        });
+        jButton1.setFont(new java.awt.Font("Century", 1, 12)); // NOI18N
+        jButton1.setText("Salvar");
 
         javax.swing.GroupLayout principalLayout = new javax.swing.GroupLayout(principal);
         principal.setLayout(principalLayout);
         principalLayout.setHorizontalGroup(
             principalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, principalLayout.createSequentialGroup()
+                .addComponent(titulo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(106, 106, 106))
             .addGroup(principalLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(nome, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -80,9 +71,8 @@ public class TelaCadastro extends javax.swing.JFrame {
                         .addComponent(varNome, javax.swing.GroupLayout.PREFERRED_SIZE, 248, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addContainerGap(128, Short.MAX_VALUE))
                     .addGroup(principalLayout.createSequentialGroup()
-                        .addComponent(btSalvar, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(0, 0, Short.MAX_VALUE))))
-            .addComponent(titulo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         principalLayout.setVerticalGroup(
             principalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -93,7 +83,7 @@ public class TelaCadastro extends javax.swing.JFrame {
                     .addComponent(nome)
                     .addComponent(varNome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 172, Short.MAX_VALUE)
-                .addComponent(btSalvar, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(58, 58, 58))
         );
 
@@ -116,28 +106,6 @@ public class TelaCadastro extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_varNomeActionPerformed
 
-    private void btSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btSalvarActionPerformed
-        boolean seFV = carregarAluno();
-        if (seFV == true){
-            
-        }
-    }//GEN-LAST:event_btSalvarActionPerformed
-    private boolean carregarAluno() {
-        String nome = varNome.getText().trim();
-        
-
-        boolean result = false;
-        if (nome.length() >= 3) {
-            //TODO jogar valor para o objeto aluno
-            System.out.println(nome);
-        } else {
-            result = true;
-            JOptionPane.showMessageDialog(null, "Digite o nome correto para prosseguir!");
-        }
-
-        return result;
-    }
-
     /**
      * @param args the command line arguments
      */
@@ -155,26 +123,27 @@ public class TelaCadastro extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(TelaCadastro.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Template.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(TelaCadastro.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Template.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(TelaCadastro.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Template.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(TelaCadastro.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Template.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new TelaCadastro().setVisible(true);
+                new Template().setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btSalvar;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel nome;
     private javax.swing.JPanel principal;
     private javax.swing.JLabel titulo;
