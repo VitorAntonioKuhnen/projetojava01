@@ -5,6 +5,7 @@
  */
 package painel;
 
+import entidade.Aluno;
 import javax.swing.JOptionPane;
 
 /**
@@ -12,6 +13,8 @@ import javax.swing.JOptionPane;
  * @author vitor.kuhnen
  */
 public class TelaCadastro extends javax.swing.JFrame {
+
+    private Aluno aluno;
 
     /**
      * Creates new form TelaCadastro
@@ -34,6 +37,8 @@ public class TelaCadastro extends javax.swing.JFrame {
         nome = new javax.swing.JLabel();
         varNome = new javax.swing.JTextField();
         btSalvar = new javax.swing.JButton();
+        idade = new javax.swing.JLabel();
+        varIdade = new javax.swing.JFormattedTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Cadastro");
@@ -67,22 +72,42 @@ public class TelaCadastro extends javax.swing.JFrame {
             }
         });
 
+        idade.setFont(new java.awt.Font("Segoe UI Black", 1, 14)); // NOI18N
+        idade.setForeground(new java.awt.Color(204, 204, 204));
+        idade.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        idade.setText("Idade:");
+
+        varIdade.setBackground(new java.awt.Color(255, 255, 255));
+        varIdade.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("#0"))));
+        varIdade.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                varIdadeActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout principalLayout = new javax.swing.GroupLayout(principal);
         principal.setLayout(principalLayout);
         principalLayout.setHorizontalGroup(
             principalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(titulo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(principalLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(nome, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
                 .addGroup(principalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(principalLayout.createSequentialGroup()
-                        .addComponent(varNome, javax.swing.GroupLayout.PREFERRED_SIZE, 248, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(128, Short.MAX_VALUE))
+                        .addComponent(nome, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addGroup(principalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(principalLayout.createSequentialGroup()
+                                .addComponent(varNome, javax.swing.GroupLayout.PREFERRED_SIZE, 248, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addContainerGap(128, Short.MAX_VALUE))
+                            .addGroup(principalLayout.createSequentialGroup()
+                                .addComponent(btSalvar, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                     .addGroup(principalLayout.createSequentialGroup()
-                        .addComponent(btSalvar, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(idade, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(varIdade, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(0, 0, Short.MAX_VALUE))))
-            .addComponent(titulo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         principalLayout.setVerticalGroup(
             principalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -92,7 +117,11 @@ public class TelaCadastro extends javax.swing.JFrame {
                 .addGroup(principalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(nome)
                     .addComponent(varNome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 172, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(principalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(idade)
+                    .addComponent(varIdade, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 138, Short.MAX_VALUE)
                 .addComponent(btSalvar, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(58, 58, 58))
         );
@@ -117,25 +146,63 @@ public class TelaCadastro extends javax.swing.JFrame {
     }//GEN-LAST:event_varNomeActionPerformed
 
     private void btSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btSalvarActionPerformed
-        boolean seFV = carregarAluno();
-        if (seFV == true){
-            
-        }
-    }//GEN-LAST:event_btSalvarActionPerformed
-    private boolean carregarAluno() {
-        String nome = varNome.getText().trim();
-        
+        aluno = new Aluno();
 
-        boolean result = false;
-        if (nome.length() >= 3) {
-            //TODO jogar valor para o objeto aluno
-            System.out.println(nome);
+        boolean erro = carregarAluno();
+
+        if (!erro) {
+
+        }
+
+    }//GEN-LAST:event_btSalvarActionPerformed
+
+    private void varIdadeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_varIdadeActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_varIdadeActionPerformed
+    private boolean carregarAluno() {
+
+        boolean temErro = false;
+        
+        String nome = varNome.getText().trim();
+        temErro = validarCampo3Valor(nome);
+        if(!temErro){
+            aluno.setNome(nome);
+        }else{
+            return true;
+        }
+        return temErro;
+    }
+
+    private boolean validarIdade() {
+        boolean temErro = false;
+        String idade = varIdade.getText().trim();
+//        Para verificar dois itens é preciso utilizar o "OU" ||
+        if (idade.equals("")) {
+            temErro = true;
+            JOptionPane.showMessageDialog(null, "Digite uma idade válida!");
+
         } else {
-            result = true;
+            int valorIdade = Integer.parseInt(idade);
+            if (valorIdade <= 16 || valorIdade >= 100) {
+                temErro = true;
+                JOptionPane.showMessageDialog(null, "Informe uma idade maior ou igual á 17");
+            } else {
+
+                aluno.setIdade(valorIdade);
+            }
+        }
+        return temErro;
+    }
+
+    private boolean validarCampo3Valor(String valor) {
+        boolean temErro = false;
+        if (valor.length() >= 3) {
+            aluno.setNome(valor);
+        } else {
+            temErro = true;
             JOptionPane.showMessageDialog(null, "Digite o nome correto para prosseguir!");
         }
-
-        return result;
+        return temErro;
     }
 
     /**
@@ -175,9 +242,11 @@ public class TelaCadastro extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btSalvar;
+    private javax.swing.JLabel idade;
     private javax.swing.JLabel nome;
     private javax.swing.JPanel principal;
     private javax.swing.JLabel titulo;
+    private javax.swing.JFormattedTextField varIdade;
     private javax.swing.JTextField varNome;
     // End of variables declaration//GEN-END:variables
 }

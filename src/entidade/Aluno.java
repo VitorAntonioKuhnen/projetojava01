@@ -5,6 +5,8 @@
  */
 package entidade;
 
+import javax.swing.JTextField;
+
 /**
  *
  * @author vitor.kuhnen
@@ -12,7 +14,7 @@ package entidade;
 public class Aluno {
 
     private String nome;
-    private String idade;
+    private int idade;
     private String telefone;
     private float salario;
     private String logradouro;
@@ -20,8 +22,11 @@ public class Aluno {
     private String bairro;
     private long cpf;
     
+    public String getNome() {
+        return nome;
+    }
+
     // Segurar "ALT" + "Insert" que irá gerar todos os Get e Set
-    
 //    public void setNome(String nomeAluno){
 //        nome = nomeAluno;
 ////       O "this." serve para quando a variaveis locais iguais passa o parametro EX:
@@ -31,29 +36,16 @@ public class Aluno {
 //    }
 //    public String getNome(){
 //        return nome;
-//    }
-//    
-//    public void setsobrenome(String sobrenome){
-//        this.sobrenome = sobrenome;
-//    }
-//    
-//    public String getsobrenome(){
-//        return sobrenome;
-//    }
-
-    public String getNome() {
-        return nome;
-    }
-
     public void setNome(String nome) {
         this.nome = nome;
     }
 
-    public String getIdade() {
+//    }
+    public int getIdade() {
         return idade;
     }
 
-    public void setIdade(String idade) {
+    public void setIdade(int idade) {
         this.idade = idade;
     }
 
@@ -103,6 +95,10 @@ public class Aluno {
 
     public void setCpf(long cpf) {
         this.cpf = cpf;
+    }
+
+    public void setNome(JTextField varNome) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     
 }
