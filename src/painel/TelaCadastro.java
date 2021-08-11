@@ -39,6 +39,10 @@ public class TelaCadastro extends javax.swing.JFrame {
         btSalvar = new javax.swing.JButton();
         idade = new javax.swing.JLabel();
         varIdade = new javax.swing.JFormattedTextField();
+        telefone = new javax.swing.JLabel();
+        salario = new javax.swing.JLabel();
+        varTelefone = new javax.swing.JFormattedTextField();
+        varSalario = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Cadastro");
@@ -85,6 +89,31 @@ public class TelaCadastro extends javax.swing.JFrame {
             }
         });
 
+        telefone.setFont(new java.awt.Font("Segoe UI Black", 1, 14)); // NOI18N
+        telefone.setForeground(new java.awt.Color(204, 204, 204));
+        telefone.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        telefone.setText("Telefone:");
+
+        salario.setFont(new java.awt.Font("Segoe UI Black", 1, 14)); // NOI18N
+        salario.setForeground(new java.awt.Color(204, 204, 204));
+        salario.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        salario.setText("Salario:");
+
+        varTelefone.setBackground(new java.awt.Color(255, 255, 255));
+        varTelefone.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                varTelefoneActionPerformed(evt);
+            }
+        });
+
+        varSalario.setBackground(new java.awt.Color(255, 255, 255));
+        varSalario.setForeground(new java.awt.Color(0, 0, 0));
+        varSalario.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                varSalarioActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout principalLayout = new javax.swing.GroupLayout(principal);
         principal.setLayout(principalLayout);
         principalLayout.setHorizontalGroup(
@@ -97,16 +126,23 @@ public class TelaCadastro extends javax.swing.JFrame {
                         .addComponent(nome, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addGroup(principalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(principalLayout.createSequentialGroup()
-                                .addComponent(varNome, javax.swing.GroupLayout.PREFERRED_SIZE, 248, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addContainerGap(128, Short.MAX_VALUE))
-                            .addGroup(principalLayout.createSequentialGroup()
-                                .addComponent(btSalvar, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                            .addComponent(varNome, javax.swing.GroupLayout.PREFERRED_SIZE, 248, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btSalvar, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addContainerGap(128, Short.MAX_VALUE))
                     .addGroup(principalLayout.createSequentialGroup()
-                        .addComponent(idade, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(varIdade, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(principalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(principalLayout.createSequentialGroup()
+                                .addComponent(idade, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(varIdade, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(principalLayout.createSequentialGroup()
+                                .addComponent(telefone, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(varTelefone, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(principalLayout.createSequentialGroup()
+                                .addComponent(salario, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(varSalario, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGap(0, 0, Short.MAX_VALUE))))
         );
         principalLayout.setVerticalGroup(
@@ -121,7 +157,15 @@ public class TelaCadastro extends javax.swing.JFrame {
                 .addGroup(principalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(idade)
                     .addComponent(varIdade, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 138, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(principalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(telefone)
+                    .addComponent(varTelefone, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(principalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(salario)
+                    .addComponent(varSalario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 70, Short.MAX_VALUE)
                 .addComponent(btSalvar, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(58, 58, 58))
         );
@@ -159,15 +203,24 @@ public class TelaCadastro extends javax.swing.JFrame {
     private void varIdadeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_varIdadeActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_varIdadeActionPerformed
+
+    private void varTelefoneActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_varTelefoneActionPerformed
+
+        // TODO add your handling code here:
+    }//GEN-LAST:event_varTelefoneActionPerformed
+
+    private void varSalarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_varSalarioActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_varSalarioActionPerformed
     private boolean carregarAluno() {
 
         boolean temErro = false;
-        
+
         String nome = varNome.getText().trim();
         temErro = validarCampo3Valor(nome);
-        if(!temErro){
+        if (!temErro) {
             aluno.setNome(nome);
-        }else{
+        } else {
             return true;
         }
         return temErro;
@@ -176,7 +229,7 @@ public class TelaCadastro extends javax.swing.JFrame {
     private boolean validarIdade() {
         boolean temErro = false;
         String idade = varIdade.getText().trim();
-//        Para verificar dois itens é preciso utilizar o "OU" ||
+//        Para verificar dois itens é preciso utilizar o "OU" = "||"
         if (idade.equals("")) {
             temErro = true;
             JOptionPane.showMessageDialog(null, "Digite uma idade válida!");
@@ -187,7 +240,6 @@ public class TelaCadastro extends javax.swing.JFrame {
                 temErro = true;
                 JOptionPane.showMessageDialog(null, "Informe uma idade maior ou igual á 17");
             } else {
-
                 aluno.setIdade(valorIdade);
             }
         }
@@ -245,8 +297,12 @@ public class TelaCadastro extends javax.swing.JFrame {
     private javax.swing.JLabel idade;
     private javax.swing.JLabel nome;
     private javax.swing.JPanel principal;
+    private javax.swing.JLabel salario;
+    private javax.swing.JLabel telefone;
     private javax.swing.JLabel titulo;
     private javax.swing.JFormattedTextField varIdade;
     private javax.swing.JTextField varNome;
+    private javax.swing.JTextField varSalario;
+    private javax.swing.JFormattedTextField varTelefone;
     // End of variables declaration//GEN-END:variables
 }
